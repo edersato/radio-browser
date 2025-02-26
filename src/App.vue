@@ -1,30 +1,37 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <Navbar />
+  <Sidebar />
+  <button 
+    class="btn btn-primary btnFixo" 
+    type="button" 
+    data-bs-toggle="offcanvas" 
+    data-bs-target="#listaFavoritas" 
+    aria-controls="listaFavoritas">
+  Minha Lista
+</button>
 </template>
 
+<script setup>
+import Navbar from './components/Navbar.vue'
+import Sidebar from './components/Sidebar.vue'
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#sidebar-nav {
+    width: 160px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.btnFixo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; 
+  z-index: 1050; 
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .btnFixo {
+    font-size: 8px;
+    padding: 4px;
+  }
 }
 </style>
