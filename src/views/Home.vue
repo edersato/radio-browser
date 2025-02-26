@@ -155,7 +155,8 @@
       // Carrega os favoritos do JSON Server
       loadFavorites() {
         axios
-          .get("http://localhost:3001/favorites")
+          // .get("http://localhost:3001/favorites")
+          .get("https://radio-browservue.vercel.app/favorites")
           .then((response) => {
             this.favorites = response.data;
           })
@@ -171,7 +172,8 @@
         if (!existing) {
           try {
             const response = await axios.post(
-              "http://localhost:3001/favorites",
+              // "http://localhost:3001/favorites",
+              "https://radio-browservue.vercel.app/favorites",
               radio
             );
             this.favorites.push(response.data);
@@ -186,7 +188,8 @@
       // Remove rádio dos favoritos no JSON Server
       async removeFromFavorites(radio) {
         try {
-          await axios.delete(`http://localhost:3001/favorites/${radio.id}`);
+          // await axios.delete(`http://localhost:3001/favorites/${radio.id}`);
+          await axios.delete(`https://radio-browservue.vercel.app/favorites/${radio.id}`);
           this.favorites = this.favorites.filter((fav) => fav.id !== radio.id);
         } catch (error) {
           console.error("Erro ao remover favorito:", error);

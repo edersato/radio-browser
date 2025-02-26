@@ -85,7 +85,8 @@
       // Salvar edição no JSON Server
       async saveEdit() {
         try {
-          await axios.put(`http://localhost:3001/favorites/${this.editForm.id}`, this.editForm);
+          // await axios.put(`http://localhost:3001/favorites/${this.editForm.id}`, this.editForm);
+          await axios.put(`https://radio-browservue.vercel.app/favorites/${this.editForm.id}`, this.editForm);
           this.$emit("update-favorite", this.editForm);
           this.showEditModal = false;
         } catch (error) {
@@ -93,6 +94,7 @@
         }
       },
   
+      
       // Remover rádio dos favoritos
       removeFavorite(radio) {
         this.$emit("remove-favorite", radio);
